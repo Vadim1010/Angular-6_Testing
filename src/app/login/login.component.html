@@ -1,0 +1,13 @@
+<div class='authorization'>
+  <div class="authorization__header">
+    <p>{{status}}</p>
+  </div>
+  <div class="authorization_body" [ngSwitch]="status">
+      <app-authorization *ngSwitchCase="loginStatus.autorization"></app-authorization>
+      <app-registration *ngSwitchCase="loginStatus.registration"></app-registration>
+  </div>
+  <div class="authorization__footer">
+    <input type="button" [value]="changeValue" (click)="changeLoginStatus(changeValue)">
+  </div>
+</div>
+

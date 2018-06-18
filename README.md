@@ -1,3 +1,9 @@
+# Start
+install: npm install -g json-server
+run: 
+  json-server --watch vv.json
+  ng serve
+
 # EpamTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
