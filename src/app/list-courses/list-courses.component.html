@@ -1,7 +1,13 @@
 <div class="list-courses">
-    <app-header></app-header>
-    <p>
-      list-courses works!
-    </p>
-    <app-footer></app-footer>
+  <div class="list-courses__header">
+      <app-header></app-header>
+  </div>
+   <div class="list-courses__body">
+    <ng-template ngFor let-course [ngForOf]="courses">
+      <app-course [course]="course"></app-course>
+    </ng-template>
+   </div>
+   <div class="list-courses__footer">
+      <app-footer></app-footer>
+   </div>
 </div>

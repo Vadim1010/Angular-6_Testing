@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Course } from './course.model';
 
 @Component({
   selector: 'app-list-courses',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-courses.component.scss']
 })
 export class ListCoursesComponent implements OnInit {
-
-  constructor() { }
+  courses: Course[];
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get<Course[]>('courses').subscribe(data => this.courses = data);
   }
 
 }
