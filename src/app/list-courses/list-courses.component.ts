@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
+import { ListCoursesService } from './list-courses.service';
 import { Course } from './course.model';
 
 @Component({
@@ -10,10 +11,42 @@ import { Course } from './course.model';
 })
 export class ListCoursesComponent implements OnInit {
   courses: Course[];
-  constructor(private http: HttpClient) { }
+
+  private subscription = new Subscription();
+  private quantity = 5;
+  constructor(private listCoursesService: ListCoursesService) {}
 
   ngOnInit() {
-    this.http.get<Course[]>('courses').subscribe(data => this.courses = data);
+    this.getCourses();
   }
 
+  getMoreCourses() {
+    this.quantity += 5;
+    this.getCourses();
+  }
+
+  onEdit(id: number): void {
+    console.log(id);
+  }
+
+  onSearch(value): void {
+    console.log(value);
+
+  }
+
+  onDelete(id: number): void {
+    this.subscription.add(
+      this.listCoursesService.deleteCourses(id).subscribe(() => {
+        this.getCourses();
+      })
+    );
+  }
+
+  private getCourses(): void {
+    this.subscription.add(
+      this.listCoursesService.getCourses(this.quantity).subscribe(date => {
+        this.courses = date;
+      })
+    );
+  }
 }

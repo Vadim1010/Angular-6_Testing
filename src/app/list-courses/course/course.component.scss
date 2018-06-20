@@ -1,0 +1,60 @@
+@import 'main.scss';
+
+.course {
+  @include display-flex();
+
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid $color-black;
+  border-radius: 5px;
+
+  &__main {
+    width: 100%;
+  }
+  & .main {
+    &__header {
+      @include display-flex($justify: space-between, $align: center);
+    }
+    &__content {
+      width: 100%;
+      text-indent: 1.5em;
+      text-align: justify;
+    }
+    .header {
+      &__title {
+        text-indent: 1.5em;
+      }
+      &__info {
+        @include display-flex($justify: space-around, $align: center);
+
+        width: 200px;
+      }
+    }
+  }
+  &__aside {
+    width: 100px;
+    margin-left: 15px;
+
+    @include display-flex();
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .aside {
+    &__item {
+      width: 100%;
+      margin: 5px;
+      padding: 5px;
+      border: 1px solid $color-black;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-red;
+        background: $color-black;
+      }
+    }
+  }
+}

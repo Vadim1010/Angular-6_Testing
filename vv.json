@@ -1,5 +1,6 @@
 {
-  "users": [{
+  "users": [
+    {
       "id": 1,
       "firstName": "admin",
       "lastName": "admin",
@@ -60,7 +61,8 @@
       "privilege": 1
     }
   ],
-  "courses": [{
+  "courses": [
+    {
       "id": 1,
       "title": "Speech Pathologist",
       "creationDate": "6/16/2018",

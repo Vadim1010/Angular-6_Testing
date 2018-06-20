@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="course__aside aside">
-    <div class="aside__edit">Edit</div>
-    <div class="aside__delete">Delete</div>
+    <div class="aside__item edit" (click)="onEdit(course.id)">Edit</div>
+    <div class="aside__item delete" (click)="onDelete(course.id)">Delete</div>
   </div>
 </div>

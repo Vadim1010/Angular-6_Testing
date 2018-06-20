@@ -1,13 +1,18 @@
 <div class="list-courses">
   <div class="list-courses__header">
-      <app-header></app-header>
+    <app-header></app-header>
   </div>
-   <div class="list-courses__body">
+  <div class="list-courses__body">
+    <app-search (handlerSearch)="onSearch($event)"></app-search>
     <ng-template ngFor let-course [ngForOf]="courses">
-      <app-course [course]="course"></app-course>
+      <app-course [course]="course" (hendlerEdit)='onEdit($event)' (hendlerDelete)='onDelete($event)'>
+      </app-course>
     </ng-template>
-   </div>
-   <div class="list-courses__footer">
-      <app-footer></app-footer>
-   </div>
+    <div class="list-courses__footer">
+      <input type="button" value="Get more Courses" (click)="getMoreCourses()">
+    </div>
+  </div>
+  <div class="list-courses__footer">
+    <app-footer></app-footer>
+  </div>
 </div>
