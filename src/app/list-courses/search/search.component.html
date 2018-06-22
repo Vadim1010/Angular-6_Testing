@@ -1,6 +1,6 @@
-<!-- <div class="search">
-  <form #searchForm="ngForm" (submit)=onSearch(searchForm.value)>
-    <input type="text" class="search__input" [(ngModel)]="searchForm" name="value">
-    <input type="submit" value="Search">
+<div class="search">
+  <form [formGroup]="searchForm" (ngSubmit)='onSearch()'>
+    <input type="text" class="search__input" formControlName='searc'>
+    <input type="submit" value="Search" [disabled]="searchForm.invalid">
   </form>
-</div> -->
+</div>
